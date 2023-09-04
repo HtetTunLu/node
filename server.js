@@ -1,3 +1,5 @@
+require("dotenv").config(); // access .env
+
 const express = require("express");
 const app = express();
 
@@ -13,4 +15,7 @@ app.get("*", (req, res) => {
   res.json({ msg: "No Route Found!" });
 });
 
-app.listen(3000, console.log("server is running at 3000"));
+app.listen(
+  process.env.PORT,
+  console.log(`Server is running at ${process.env.PORT}`)
+);
