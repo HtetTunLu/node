@@ -23,7 +23,7 @@ const patch = async (req, res, next) => {
     const updatedUser = await DB.findById(user._id);
     Helper.fMsg(res, "Updated user", updatedUser);
   } else {
-    res.json({ msg: "error" });
+    next(new Error("Error, No user with that id"));
   }
 };
 
